@@ -1,28 +1,25 @@
 package com.bstore;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.os.Bundle;
-import android.util.Base64;
 import android.widget.TextView;
 
-import org.json.JSONObject;
-import org.w3c.dom.Text;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Main4Activity extends AppCompatActivity {
 
-    static String text = "";
+    static Book book;
+    ServerAdapter server;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
+
+        server = new ServerAdapter();
 
         final int id = getIntent().getIntExtra("id", -1);
 
@@ -32,7 +29,7 @@ public class Main4Activity extends AppCompatActivity {
             @Override
             public void handleMessage(Message msg) {
                 if(msg.what==107) {
-                    textView.setText(text);
+                    textView.setText(book.Text);
                 }
             }
         };
@@ -41,9 +38,7 @@ public class Main4Activity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    JSONObject result = ServerConnection.GetText(id);
-
-                    text = result.getString("text");
+                    book = server.GetBook(id);
                     handler.sendMessage(Message.obtain(handler, 107));
                 }catch (Exception e){
                     e.printStackTrace();

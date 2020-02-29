@@ -57,10 +57,8 @@ public class ReviewListAdapter extends ArrayAdapter<Review> {
         }
         Review review = reviews.get(position);
 
-        viewHolder.ratingBar.setRating(review.rating);
-        viewHolder.review_author.setText(review.author);
-        viewHolder.review_body.setText(review.body);
-        viewHolder.review_date.setText(review.date);
+        viewHolder.review_author.setText("Unknown user");
+        viewHolder.review_body.setText(review.Text);
 
         return convertView;
     }

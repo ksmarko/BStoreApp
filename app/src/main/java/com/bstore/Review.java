@@ -1,15 +1,11 @@
 package com.bstore;
 
 public class Review {
-    public String author;
-    public String date;
-    public String body;
-    public int rating;
+    public String Text;
+    public int UserId;
 
-    public Review(String a, String d, String b, int r){
-        author= a;
-        date = d;
-        rating = r;
-        body = b;
+    public Review(int userId, String text){
+        Text = text;
+        UserId = userId;
     }
 }

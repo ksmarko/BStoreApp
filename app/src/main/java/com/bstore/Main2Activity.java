@@ -1,33 +1,28 @@
 package com.bstore;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.os.Bundle;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.io.*;
-import java.net.*;
 
 public class Main2Activity extends AppCompatActivity {
 
     ListView listView;
     List<BookPreview> books = new ArrayList<>();
+
+    ServerAdapter server;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +30,7 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
 
+        server = new ServerAdapter();
         final Intent intent  = new Intent(this, Main3Activity.class);
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -61,20 +57,19 @@ public class Main2Activity extends AppCompatActivity {
             }
         };
 
-
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    JSONObject result = ServerConnection.GetPreviews();
+                    Book[] booksResponse = server.GetBooks();
 
-                    JSONArray booksjson = result.getJSONArray("books");
+                    for(int i =0; i < booksResponse.length; i++){
+                        Book book = booksResponse[i];
+                        String pureBase64Encoded = book.Img.substring(book.Img.indexOf(",")  + 1);
 
-                    for(int i =0; i<booksjson.length();i++){
-                        JSONObject book = booksjson.getJSONObject(i);
-                        byte[] image = Base64.decode(book.getString("img"), Base64.DEFAULT);
+                        byte[] image = Base64.decode(pureBase64Encoded, Base64.DEFAULT);
 
-                        books.add(new BookPreview(book.getString("name"), book.getString("author"), BitmapFactory.decodeByteArray(image, 0, image.length), book.getInt("id")));
+                        books.add(new BookPreview(book.Name, book.Author, BitmapFactory.decodeByteArray(image, 0, image.length), book.Id));
                     }
 
                     handler.sendMessage(Message.obtain(handler, 105));

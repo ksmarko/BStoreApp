@@ -9,7 +9,7 @@ tools:layout_marginTop="0dp"
 android:focusableInTouchMode="true"
 android:fillViewport="true">
 
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:focusableInTouchMode="true">
@@ -23,29 +23,16 @@ android:fillViewport="true">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RatingBar
-        android:id="@+id/info_stars"
-        style="@style/Widget.AppCompat.RatingBar.Indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:progressTint="#ff0"
-        android:numStars="5"
-        android:rating="0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info_image" />
-
     <TextView
         android:id="@+id/info_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="92dp"
         android:text=""
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info_stars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/info_author"
@@ -103,46 +90,18 @@ android:fillViewport="true">
         app:layout_constraintTop_toBottomOf="@+id/buttons" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="@string/genres_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/separator" />
-
-    <TextView
-        android:id="@+id/genre_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <View
-        android:id="@+id/separator2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintTop_toBottomOf="@+id/genre_name" />
-
-    <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="97dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/summ_text"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginTop="16dp"
-        android:text="@string/summ_text"
+        app:layout_constraintBottom_toTopOf="@+id/summ_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/separator2" />
+        app:layout_constraintTop_toBottomOf="@+id/separator" />
 
     <TextView
         android:id="@+id/summ_text"
@@ -213,7 +172,7 @@ android:fillViewport="true">
         android:background="@android:color/darker_gray"
         app:layout_constraintTop_toBottomOf="@+id/reviews" />
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -236,8 +195,12 @@ android:fillViewport="true">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="77dp"
             android:entries="@array/ratings"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/review_text"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/review_btn"
@@ -250,9 +213,9 @@ android:fillViewport="true">
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/review_text" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
