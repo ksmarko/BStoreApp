@@ -1,7 +1,9 @@
 package com.bstore;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -21,6 +23,8 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -132,6 +136,8 @@ public class Main3Activity extends AppCompatActivity {
         dwn_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                checkPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, 1111);
+
                 AsyncTask.execute(new Runnable() {
                     @Override
                     public void run() {
@@ -205,5 +211,16 @@ public class Main3Activity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void checkPermission(String permission, int requestCode)
+    {
+        if (ContextCompat.checkSelfPermission(Main3Activity.this, permission)
+                == PackageManager.PERMISSION_DENIED) {
+
+            ActivityCompat.requestPermissions(Main3Activity.this,
+                    new String[] { permission },
+                    requestCode);
+        }
     }
 }
