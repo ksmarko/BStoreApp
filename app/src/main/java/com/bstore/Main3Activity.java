@@ -16,7 +16,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -69,7 +68,6 @@ public class Main3Activity extends AppCompatActivity {
 
         Button review_btn = findViewById(R.id.review_btn);
         final TextView review_text = findViewById(R.id.review_text);
-        final Spinner rating = findViewById(R.id.spinner2);
         final Button buy_btn = findViewById(R.id.buy_button);
 
 
@@ -114,7 +112,6 @@ public class Main3Activity extends AppCompatActivity {
                 }
                 if(msg.what==108){
                     review_text.setText("");
-                    rating.setSelection(0);
                     adapter.notifyDataSetChanged();
                     ReviewListAdapter.setListViewHeightBasedOnChildren(listView);
                 }
@@ -151,7 +148,15 @@ public class Main3Activity extends AppCompatActivity {
         review_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Review review = new Review(UserInfo.UserId, review_text.getText().toString());
+
+                String text = review_text.getText().toString();
+
+                if (text == null || text.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Add review text first", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                final Review review = new Review(UserInfo.UserId, text);
 
                 info.reviews.add(review);
 
