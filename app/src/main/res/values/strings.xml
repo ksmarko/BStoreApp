@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">BStoreApp</string>
+    <string name="login_hint">Email</string>
+    <string name="pass_hint">Password</string>
+    <string name="login_btn">Log In</string>
+    <string name="register_btn">Sign In</string>
+    <string name="register_title">SignIn/LogIn</string>
+    <string name="regerr">Account with the same email already exists</string>
+    <string name="loginerr">Invalid email or password</string>
+    <string name="buy_text">Придбати за %1$s</string>
+    <string name="read_text">Читати</string>
+    <string name="dwn_text">Завантажити</string>
+    <string name="genres_text">Жанр</string>
+    <string name="summ_text">Опис книги</string>
+    <string name="publish_year">Рік видання: %1$s</string>
+    <string name="review_text">Відгуки</string>
+    <string name="publish_btn">Написати</string>
+    <string name="pay_btn">Сплатити</string>
+
+    <string-array name="ratings">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+</resources>
