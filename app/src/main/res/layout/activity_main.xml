@@ -8,9 +8,11 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="180dp"
+        android:layout_marginEnd="50dp"
         android:ems="10"
         android:hint="@string/login_hint"
         android:inputType="textPersonName"
@@ -33,9 +35,11 @@
 
     <EditText
         android:id="@+id/editText2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
         android:ems="10"
         android:hint="@string/pass_hint"
         android:inputType="textPassword"
@@ -46,9 +50,12 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="28dp"
+        android:layout_marginEnd="50dp"
+        android:background="#009688"
         android:text="@string/login_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,10 +63,13 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="15dp"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="53dp"
+        android:background="#CFCFCF"
         android:text="@string/register_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

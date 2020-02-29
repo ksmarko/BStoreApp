@@ -41,11 +41,15 @@ public class MainActivity extends AppCompatActivity {
                 final String email = loginTxt.getText().toString();
                 final String password = passTxt.getText().toString();
 
-                if (email == null || email.isEmpty())
-                    WriteError("Email cannot be null or empty");
+                if (email == null || email.isEmpty()){
+                    WriteError("Email cannot be empty");
+                    return;
+                }
 
-                if (password == null || password.isEmpty())
-                    WriteError("Password cannot be null or empty");
+                if (password == null || password.isEmpty()) {
+                    WriteError("Password cannot be empty");
+                    return;
+                }
 
                 AsyncTask.execute(new Runnable() {
                     @Override
@@ -73,11 +77,15 @@ public class MainActivity extends AppCompatActivity {
                 final String email = loginTxt.getText().toString();
                 final String password = passTxt.getText().toString();
 
-                if (email == null || email.isEmpty())
-                    WriteError("Email cannot be null or empty");
+                if (email == null || email.isEmpty()) {
+                    WriteError("Email cannot be empty");
+                    return;
+                }
 
-                if (password == null || password.isEmpty())
-                    WriteError("Password cannot be null or empty");
+                if (password == null || password.isEmpty()) {
+                    WriteError("Password cannot be empty");
+                    return;
+                }
 
                 AsyncTask.execute(new Runnable() {
                     @Override
