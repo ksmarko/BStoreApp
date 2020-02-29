@@ -95,7 +95,7 @@ public class ServerAdapter {
     public User Login(String email, String password) {
 
         try {
-            URL urlStr = new URL("https://postgretest.appspot.com/api/");
+            URL urlStr = new URL("https://postgretest.appspot.com/api/login");
             HttpURLConnection conn = (HttpURLConnection) urlStr.openConnection();
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");

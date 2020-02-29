@@ -8,12 +8,13 @@
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal">
+
         <ImageView
             android:id="@+id/bookPreview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher_background"
-            android:adjustViewBounds="true"/>
+            android:layout_width="182dp"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_launcher_background" />
     </LinearLayout>
 
     <LinearLayout
@@ -24,10 +25,10 @@
 
         <TextView
             android:id="@+id/bookName"
-            android:textSize="16sp"
-            android:textStyle="bold"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/bookAuthor"

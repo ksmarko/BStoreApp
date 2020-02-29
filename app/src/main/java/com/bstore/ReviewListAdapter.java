@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.List;
@@ -57,21 +56,18 @@ public class ReviewListAdapter extends ArrayAdapter<Review> {
         }
         Review review = reviews.get(position);
 
-        viewHolder.review_author.setText("Unknown user");
+        viewHolder.review_author.setText("Anonimus");
         viewHolder.review_body.setText(review.Text);
 
         return convertView;
     }
 
     private class ViewHolder {
-        final RatingBar ratingBar;
-        final TextView review_author, review_date, review_body;
+        final TextView review_author, review_body;
 
         ViewHolder(View view) {
-            ratingBar = view.findViewById(R.id.review_rating);
             review_author = view.findViewById(R.id.review_author);
             review_body = view.findViewById(R.id.review_body);
-            review_date = view.findViewById(R.id.review_date);
         }
     }
 }

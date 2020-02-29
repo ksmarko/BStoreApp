@@ -6,12 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    TextView errorLbl;
     EditText loginTxt;
     EditText passTxt;
     Button btnLog;
@@ -27,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         server = new ServerAdapter();
 
         loginTxt = findViewById(R.id.editText);
-        errorLbl = findViewById(R.id.lbl_error);
         passTxt = findViewById(R.id.editText2);
         btnLog = findViewById(R.id.button);
         btnReg = findViewById(R.id.button2);
@@ -109,11 +107,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void WriteError(final String message){
-
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                errorLbl.setText(message);
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -124,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 loginTxt.setText("");
                 passTxt.setText("");
-                errorLbl.setText("");
             }
         });
     }
